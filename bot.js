@@ -35,6 +35,10 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log(`Scraping: ${settings.url} every ${settings.scrapeFrequencyMs / 1000} seconds`);
   console.log(`Notifying role ${settings.role} in guild ${settings.guild} in channel ${settings.channel}`);
+  client.user.setPresence({
+      activity: {name: '/status'},
+      status: 'online'
+  });
 
   client.guilds.fetch(settings.guild)
     .then( (guild) => {
@@ -52,7 +56,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if (msg.content == '/status'){
-        msg.reply(`Searching for ${settings.url} stock every ${settings.scrapeFrequencyMs / 1000}`)
+        msg.reply(`Searching for ${settings.url} stock every ${settings.scrapeFrequencyMs / 1000} seconds`);
     }
 });
 
