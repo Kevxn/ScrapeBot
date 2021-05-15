@@ -29,4 +29,6 @@ Bot must also have a `secrets.json` file in the same directory with structure:
 
 `prod` and `dev` can be used for testing on another guild or channel before moving to the live version.
 
+Once configured, run bot with `node bot.js`
+
 Different websites will of course require different selectors which can be obtained from Chrome DevTools.
