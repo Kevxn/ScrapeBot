@@ -34,6 +34,8 @@ setInterval( () => {
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log(`Scraping: ${settings.url} every ${settings.scrapeFrequencyMs / 1000} seconds`);
+  console.log(`Notifying role ${settings.role} in guild ${settings.guild} in channel ${settings.channel}`);
+  
   client.guilds.fetch(settings.guild)
     .then( (guild) => {
         generalPromise = guild.client.channels.fetch(settings.channel)
