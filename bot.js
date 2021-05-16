@@ -11,10 +11,16 @@ const settings = prod ? config.prod : config.dev;
 
 const client = new Discord.Client();
 let general = undefined;
+let options = {
+    uri: settings.url,
+    headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36"
+    }
+}
 
 setInterval( () => {
     if (!general) return;
-    rp(settings.url)
+    rp(options)
         .then( (html) => {
             cheerio.load(html);
             const $ = cheerio.load(html);
